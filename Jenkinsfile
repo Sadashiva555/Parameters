@@ -1,14 +1,10 @@
 pipeline {
     agent any
     parameters {
-        string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
-        booleanParam(defaultValue: false, description: '', name: 'foo')
-if (params.foo) {
-    echo "true: $foo"
-}
-else echo "false: $foo"
+        string(name: 'ENVIRONMENT', defaultValue: 'Integration', description: 'used for Posgress.sh and Code Deploymet Deploy Code')
+        string(name: 'branch', defaultValue: 'Default', description: 'Select which branch you want to select?')
     }
-    stages {
+        stages {
         stage('Example') {
             steps {
                 echo "Hello ${params.PERSON}"
