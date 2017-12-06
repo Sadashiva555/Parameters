@@ -1,8 +1,10 @@
 pipeline {
     agent any
     parameters {
-        string(name: 'ENVIRONMENT', defaultValue: 'Integration', description: 'used for Posgress.sh and Code Deploymet Deploy Code')
-        string(name: 'branch', defaultValue: 'Default', description: 'Select which branch you want to select?')
+        choice (name: 'ENVIRONMENT',      defaultValue: 'Integration',  description: 'used for Posgress.sh and Code Deploymet Deploy Code')
+        boolean(name: 'REBUILD_DATABASE', defaultValue: 'checkbox',     description: 'Should we re build the database?')
+        boolean(name: 'DEPLOY',           defaultValue: 'checkbox',     descriptin: 'Should we deploy the application?')
+        string (name: 'branch',           defaultValue: 'Default',      description: 'Select which branch you want to select?')
     }
         stages {
         stage('Example') {
